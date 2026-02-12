@@ -1,0 +1,18 @@
+<html>
+<head>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <select name="options" onchange=do_something(this.value)>
+        <!-- jinja2 template: create option element for each element in "options" -->
+        {% for option in options %}
+            <option value="{{option}}">{{ option }}</option>
+        {% endfor %}
+    </select>
+    <div>Is this a column in the Superstore dataset?</div>
+    <div id="response"></div>
+
+    <!-- load javascript; url_for generates path dynamically -->
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script> 
+</body>
+</html>
