@@ -20,7 +20,7 @@ function update_filter_options(group_filters){
         countrySel.value = currentCountry;
     } else {
         countrySel.value = "All";
-    
+    }
 
     // Update Region filter options
     let currentRegion = regionSel.value;
@@ -37,7 +37,6 @@ function update_filter_options(group_filters){
     } else {
         regionSel.value = "All";
     }
-
 
     // Update State/Province filter options
     let currentState = stateSel.value;
@@ -158,4 +157,4 @@ svg = d3.select("#plot-container")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-update_aggregate(null, null)}
+update_aggregate(null, null);
