@@ -158,4 +158,4 @@ svg = d3.select("#plot-container")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-update_aggregate(null, null)
+update_aggregate(null, null)}
