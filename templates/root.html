@@ -9,22 +9,22 @@
     <div id="interactions-container">
         <div id="dropdown-container">
             <label for="grouper"> X: </label>
-            <!-- TODO: update the bar chart when the grouper is changed -->
-            <select name="grouper" onchange="">
+            <!-- DONE: update the bar chart when the grouper is changed -->
+            <select name="grouper" onchange="update_aggregate(this.value, 'grouper')">
                 {% for group in groups %}
                     <option value="{{group}}">{{ group }}</option>
                 {% endfor %}
             </select>
             <label for="value"> Y: </label>
-            <!-- TODO: update the bar chart when the value is changed -->
-            <select name="value" onchange="">
+            <!-- DONE: update the bar chart when the value is changed -->
+            <select name="value" onchange="update_aggregate(this.value, 'value')">
                 {% for value in values %}
                     <option value="{{value}}">{{ value }}</option>
                 {% endfor %}
             </select>
             <label for="agg"> Aggregate: </label>
-            <!-- TODO: update the bar chart when the aggregate function is changed -->
-            <select name="agg" onchange="">
+            <!-- DONE: update the bar chart when the aggregate function is changed -->
+            <select name="agg" onchange="update_aggregate(this.value, 'agg')">
                 {% for agg in aggs %}
                     <option value="{{agg}}">{{ agg }}</option>
                 {% endfor %}
@@ -35,9 +35,11 @@
     <div id="filters-container">
         {% for group in groups %}
             <label for="{{group}}-filter"> {{ group }} </label>
-            <!-- TODO: update the bar chart and filters when any of the filters are changed -->
-            <select id="{{group}}-filter" name="{{group}}-filter" onchange="">
-                <option id='all' value="all">All</option>
+            <!-- DONE: update the bar chart and filters when any of the filters are changed -->
+            <select id="{{group}}-filter"
+                    name="{{group}}-filter"
+                    onchange="update_filter(this.value, '{{group}}')">  
+                <option id='All' value="All">All</option>
                 {% for v in group_values[group] %}
                     <option id="{{v}}" value="{{v}}">{{ v }}</option>
                 {% endfor %}
